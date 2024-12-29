@@ -1,0 +1,89 @@
+main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+}  
+
+.ballStackContainer {
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+
+.ballStackContainer {
+    width: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    background: linear-gradient(to bottom, #f0f0f0, #c0c0c0); /* Light to dark gradient */
+    border-bottom-left-radius: 25px; 
+    border-bottom-right-radius: 25px; 
+    box-shadow: 
+      inset 2px 2px 5px rgba(0, 0, 0, 0.3), /* Inner shadow for depth */
+      4px 4px 10px rgba(0, 0, 0, 0.5); /* Outer shadow */
+    position: relative;
+    margin: 50px auto;
+}
+  
+  
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+.ball {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+    box-shadow: 
+      5px 5px 15px rgba(0, 0, 0, 0.5),  /* Shadow for depth */
+      inset -5px -5px 10px rgba(255, 255, 255, 0.5);
+    background: radial-gradient(circle at 30% 30%, #ffffff, #ff5733, #c70039), 
+              repeating-radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 5px, transparent 10px);
+    /* animation: rotate 5s linear infinite; */
+}
+
+
+/* DEVICE ORIENTATION LAYOUTS */
+@media (orientation: portrait) {
+    main {
+        flex-direction: column;
+    }
+}
+
+@media (orientation: landscape) {
+    main {
+        flex-direction: row;
+    }
+}
+
+/* ANIMATIONS */
+.blur-disappear {
+    transition: all 1s ease;
+}
+
+.blur-disappear.blur-effect {
+    animation: blurAndDisappear 3s;
+}
+
+@keyframes blurAndDisappear {
+    0% {
+        transform: scale(1);
+        filter: blur(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.1);
+        filter: blur(10px);
+        opacity: 0;
+    }
+}
+  
